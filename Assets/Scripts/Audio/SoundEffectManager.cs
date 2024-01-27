@@ -7,7 +7,10 @@ public class SoundEffectManager : MonoBehaviour
 {   
     [Header("References")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] List<AudioClip> punchSoundEffects;
+    [SerializeField] List<AudioClip> normalPunchSoundEffects;
+    [SerializeField] List<AudioClip> rarePunchSoundEffects;
+    [SerializeField] List<AudioClip> epicPunchSoundEffects;
+    [SerializeField] List<AudioClip> legendaryPunchSoundEffects;
     [SerializeField] AudioClip whooshSoundEffect;
 
     [Header("Settings")]
@@ -18,11 +21,8 @@ public class SoundEffectManager : MonoBehaviour
 
     public void PlayPunchEffect()
     {
-        audioSource.volume = punchSoundVolumen;
-        int soundIndex = (int)Random.Range(0,punchSoundEffects.Count);
-        audioSource.clip = punchSoundEffects[soundIndex];
+        int index = (int)Random.Range(1,100);
         
-        audioSource.Play();
     }
 
     public void PlayWhooshEffect()
