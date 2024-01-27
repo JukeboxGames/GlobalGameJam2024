@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,14 @@ public class Face : MonoBehaviour
         get;
         private set;
     }
+    public event Action HitPlayerEvent;
+    public event Action NotHitPlayerEvent;
     public SpriteShapeController shapeController;
     private Spline spline;
     public float _punchRadius = 0.5f;
+    public float hitForce;
     public Vector3 Center = new(0, 0, 0);
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -41,6 +46,7 @@ public class Face : MonoBehaviour
 
     private void OnClickMouse(int direction)
     {
+        bool hasHit = false;
         if (spline.GetPointCount() > 0)
         {
             Vector3 mousePosition = new(
@@ -56,15 +62,19 @@ public class Face : MonoBehaviour
                 float dist = Vector3.Distance(mousePosition, splinePoint);
                 if (dist < _punchRadius)
                 {
+                     hasHit = true;
                     // Esta dentro de mi rango sumarle vector de la direccion del mouse
                     Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
-                    spline.SetPosition(i, splinePoint + 0.3f * direction * vectorAdd);
-                }
+                    spline.SetPosition(i, splinePoint + hitForce * direction * vectorAdd);
+                } 
             }
 
             Center = GetCenter();
-        }
+        } 
         
+        if (hasHit) HitPlayerEvent?.Invoke();
+        else NotHitPlayerEvent?.Invoke();
+
     }
 
     // Update is called once per frame
