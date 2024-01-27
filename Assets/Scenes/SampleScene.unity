@@ -255,6 +255,15 @@ MonoBehaviour:
   _punchRadius: 0.7
   hitForce: 0.3
   Center: {x: 0, y: 0, z: 0}
+  mouthSpline:
+    m_IsOpenEnded: 0
+    m_ControlPoints: []
+  nose: {fileID: 0}
+  rightEar: {fileID: 0}
+  leftEar: {fileID: 0}
+  rightEye: {fileID: 0}
+  leftEye: {fileID: 0}
+  mouth: {fileID: 0}
 --- !u!114 &534420490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +497,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Color: {r: 0.8679245, g: 0.6509434, b: 0.46262014, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
@@ -515,7 +524,7 @@ Transform:
   m_GameObject: {fileID: 534420488}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.02893918, w: 0.9995812}
-  m_LocalPosition: {x: 0.035169855, y: -0.09835604, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -786,7 +795,7 @@ Transform:
   m_GameObject: {fileID: 1668252856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.06, z: 0}
+  m_LocalPosition: {x: -0.13, y: -2.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

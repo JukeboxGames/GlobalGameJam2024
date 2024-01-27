@@ -5,7 +5,7 @@ using System;
 
 public class ClosestParent : MonoBehaviour
 {
-    private Tuple<int, float> closest = new(0,0);
+    public Tuple<int, float> closest = new(0,0);
     
     // Start is called before the first frame update
     void Start()

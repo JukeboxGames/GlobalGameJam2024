@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwapPrefab : MonoBehaviour
 {
     [SerializeField] private List<GameObject> differentFeatures = new List<GameObject>();
-    private int currentIndex = 0;
+    public int currentIndex = 0;
 
     private void Start() {
         Transform firstChild = transform.GetChild(0);
