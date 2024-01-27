@@ -14,7 +14,7 @@ public class Face : MonoBehaviour
     public event Action HitPlayerEvent;
     public event Action NotHitPlayerEvent;
     public SpriteShapeController shapeController;
-    private Spline spline;
+    public Spline spline;
     public float _punchRadius = 0.5f;
     public float hitForce;
     public Vector3 Center = new(0, 0, 0);
@@ -92,10 +92,11 @@ public class Face : MonoBehaviour
         );
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(mousePosition, _punchRadius);
+        /*
         for (int i = 0; i < spline.GetPointCount(); i++) {
             Gizmos.DrawSphere(spline.GetPosition(i), 0.1f);
         }
         Gizmos.DrawSphere(Center, 0.1f);
-        
+        */
     }
 }
