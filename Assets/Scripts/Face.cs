@@ -19,6 +19,10 @@ public class Face : MonoBehaviour
     public float hitForce;
     public Vector3 Center = new(0, 0, 0);
 
+    // Face Parts References
+    public Spline mouthSpline;
+    public GameObject nose, rightEar, leftEar, rightEye, leftEye, mouth;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
