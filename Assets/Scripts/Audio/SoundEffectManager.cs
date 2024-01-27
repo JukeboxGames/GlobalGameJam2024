@@ -41,7 +41,7 @@ public class SoundEffectManager : MonoBehaviour
     private void SetPunchEffectClip()
     {
         int index = (int)Random.Range(1,100);
-        print(index);
+
         if (index < 60)
         {
             punchEffect = normalPunchSoundEffects[Random.Range(0,normalPunchSoundEffects.Count)];
