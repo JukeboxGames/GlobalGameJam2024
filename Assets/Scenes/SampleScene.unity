@@ -286,6 +286,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 231763087}
+  - component: {fileID: 231763088}
+  - component: {fileID: 231763089}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -311,6 +313,42 @@ Transform:
   - {fileID: 638310547}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &231763088
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231763086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac88e172a70030746abb7153b68789c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &231763089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231763086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941ea4984c2ac1a48b922ea2e0cc23f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 231763088}
+  catHead: {fileID: 1633384381}
+  animationTime: 0.2
 --- !u!1 &312133887
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +843,7 @@ GameObject:
   - component: {fileID: 638310547}
   - component: {fileID: 638310546}
   m_Layer: 0
-  m_Name: p cat l2
+  m_Name: Right Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -851,7 +889,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 6394512a728e06644bc75f6a7afe3e64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -872,7 +910,7 @@ Transform:
   m_GameObject: {fileID: 638310545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.31, y: 0.45, z: 0}
+  m_LocalPosition: {x: 1.31, y: 0.17, z: 0}
   m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1770,7 +1808,7 @@ GameObject:
   - component: {fileID: 1633384382}
   - component: {fileID: 1633384381}
   m_Layer: 0
-  m_Name: p cat 1
+  m_Name: Cat Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1816,7 +1854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 1639620e4c6992f4188132cb16b4b736, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2239,7 +2277,7 @@ GameObject:
   - component: {fileID: 2001356154}
   - component: {fileID: 2001356153}
   m_Layer: 0
-  m_Name: p cat l
+  m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2285,7 +2323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 10cc77cc9ad2fe147aea9c42ff73eaf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2306,7 +2344,7 @@ Transform:
   m_GameObject: {fileID: 2001356152}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.31, y: 0.45, z: 0}
+  m_LocalPosition: {x: -1.31, y: 0.17000002, z: 0}
   m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2438,7 +2476,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f8cfa3c77656bb6448f5a3c2a00b1105, type: 3}
     - target: {fileID: 1104589272050463446, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
       propertyPath: legendaryPunchSoundEffects.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1104589272050463446, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
       propertyPath: normalPunchSoundEffects.Array.data[0]
@@ -2488,6 +2526,10 @@ PrefabInstance:
       propertyPath: legendaryPunchSoundEffects.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: eaa16b56bdacaca42873ebb5b463594a, type: 3}
+    - target: {fileID: 1104589272050463446, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
+      propertyPath: legendaryPunchSoundEffects.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f7c1d44a8a621249934f02c8f6017f4, type: 3}
     - target: {fileID: 6695066376927648688, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
       propertyPath: m_Name
       value: SoundEffect Manager
