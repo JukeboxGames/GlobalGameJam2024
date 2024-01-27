@@ -6,6 +6,7 @@ using System;
 public class ClosestParent : MonoBehaviour
 {
     public Tuple<int, float> closest = new(0,0);
+    [SerializeField] private Vector3 offset;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,6 @@ public class ClosestParent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Face.Instance.spline.GetPosition(closest.Item1);
+        transform.position = Face.Instance.spline.GetPosition(closest.Item1) + offset;
     }
 }
