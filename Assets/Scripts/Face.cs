@@ -49,6 +49,37 @@ public class Face : MonoBehaviour
         return new Vector3(sumx / spline.GetPointCount(), sumy / spline.GetPointCount(), 0);
     }
 
+    private bool CCW(Vector3 A, Vector3 B, Vector3 C) {
+        return (C.y - A.y) * (B.x - A.x) > (B.y - A.y) * (C.x-A.x);
+    }
+    private bool Intersect(Vector3 A, Vector3 B, Vector3 C, Vector3 D){
+        return CCW(A, C, D) != CCW(B, C, D) && CCW(A, B, C) != CCW(A, B, D);
+    }
+
+    private bool ValidShape(int ind, Vector3 newPoint) {
+        Spline tempSpline = new();
+        for(int i = 0; i<spline.GetPointCount(); i++) {
+            if(i == ind) tempSpline.InsertPointAt(ind, newPoint);
+            else tempSpline.InsertPointAt(i, spline.GetPosition(i));
+        }
+        for(int i = 1; i<tempSpline.GetPointCount(); i++) {
+            for(int j = i+1; j<=tempSpline.GetPointCount(); j++){
+
+                bool result = !Intersect(
+                    tempSpline.GetPosition(i),
+                    tempSpline.GetPosition(i-1),
+                    tempSpline.GetPosition(j % tempSpline.GetPointCount()) + (tempSpline.GetPosition(j-1) - tempSpline.GetPosition(j % tempSpline.GetPointCount())).normalized * 0.01f,
+                    tempSpline.GetPosition(j-1) - (tempSpline.GetPosition(j-1) - tempSpline.GetPosition(j % tempSpline.GetPointCount())).normalized * 0.01f
+                );
+                if(!result){ 
+                    return false;
+                }
+            }
+           
+        }
+        return true;
+    }
+
     private void OnClickMouse(int direction)
     {
         bool hasHit = false;
@@ -65,15 +96,15 @@ public class Face : MonoBehaviour
             {
                 Vector3 splinePoint = spline.GetPosition(i);
                 float dist = Vector3.Distance(mousePosition, splinePoint);
+                // Verificar que el punto del spline este deentro de punchradius
                 if (dist < _punchRadius)
                 {
-                     hasHit = true;
-                    // Esta dentro de mi rango sumarle vector de la direccion del mouse
-                    if (splinePoint.magnitude - GetCenter().magnitude > maxHitRange)
+                    hasHit = true;
+                    Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
+                    Vector3 newPoint = splinePoint + hitForce * direction * vectorAdd;
+                    if (newPoint.magnitude - GetCenter().magnitude > maxHitRange && ValidShape(i, newPoint))
                     {
-                        Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
-                        print(vectorAdd);
-                        spline.SetPosition(i, splinePoint + hitForce * direction * vectorAdd);
+                        spline.SetPosition(i, newPoint);
                     }
                 } 
             }
@@ -89,7 +120,9 @@ public class Face : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) OnClickMouse(1);
+        if (Input.GetMouseButtonDown(0)) {
+            OnClickMouse(1);
+        }
     }
 
     void OnDrawGizmos()
@@ -101,11 +134,13 @@ public class Face : MonoBehaviour
         );
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(mousePosition, _punchRadius);
-        /*
+        
         for (int i = 0; i < spline.GetPointCount(); i++) {
             Gizmos.DrawSphere(spline.GetPosition(i), 0.1f);
+            if(i > 0) {
+                Gizmos.DrawLine(spline.GetPosition(i-1), spline.GetPosition(i));
+            }
         }
         Gizmos.DrawSphere(Center, 0.1f);
-        */
     }
 }
