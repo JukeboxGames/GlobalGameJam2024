@@ -6,8 +6,6 @@ using UnityEngine;
 public class FacialFeature : MonoBehaviour
 {
     private Vector3 offset; 
-    [SerializeField] private List<GameObject> differentFeatures = new List<GameObject>();
-    private int currentIndex = 0;
     private Vector3 Center = new(0, 0, 0); 
     private Tuple<int, float>[] closest = new Tuple<int, float>[5];
     // Start is called before the first frame update
@@ -28,9 +26,7 @@ public class FacialFeature : MonoBehaviour
         }
             
         offset =  Center - transform.position;
-        Transform firstChild = transform.GetChild(0);
-        Instantiate(differentFeatures[currentIndex], firstChild.position, firstChild.rotation, transform);
-        Destroy(firstChild.gameObject);
+        
     }
 
     // Update is called once per frame
@@ -40,27 +36,6 @@ public class FacialFeature : MonoBehaviour
         foreach(Tuple<int, float> i in closest) 
             Center += Face.Instance.spline.GetPosition(i.Item1)/5.0f;
         transform.position = Center - offset;
-        if (Input.GetMouseButtonDown(0) && transform.GetChild(0).GetComponent<ChildFeature>().OverMe){
-            Swap();
-        }
-    }
-    void Swap() {
-        if (differentFeatures.Count > 0)
-        {
-            Transform firstChild = transform.GetChild(0);
-            int randomIndex = UnityEngine.Random.Range(0, differentFeatures.Count);
-            while(randomIndex == currentIndex){
-                randomIndex = UnityEngine.Random.Range(0, differentFeatures.Count);
-            }
-            currentIndex = randomIndex;
-            GameObject newFeature = differentFeatures[randomIndex];
-            Instantiate(newFeature, firstChild.position, firstChild.rotation, transform);
-            Destroy(firstChild.gameObject);
-        }
-        else
-        {
-            Debug.LogWarning("No different features available to swap.");
-        }
     }
 
     void OnDrawGizmos()
