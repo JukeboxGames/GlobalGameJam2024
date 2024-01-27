@@ -16,11 +16,9 @@ public class SettingsHelper : MonoBehaviour
 
     public void SetMasterVolume(){
         Settings.Instance.masterVolume = (int)volumeSlider.value;
-        Debug.Log(Settings.Instance.masterVolume);
     }
 
     public void SetMouseSensitivity(){
         Settings.Instance.mouseSensitivity = (int)mouseSensitivitySlider.value;
-        Debug.Log(Settings.Instance.mouseSensitivity);
     }
 }
