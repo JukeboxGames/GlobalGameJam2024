@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoringSystem : MonoBehaviour
 {
@@ -9,30 +10,35 @@ public class ScoringSystem : MonoBehaviour
     float sum, score;
     float meanFace, meanFeaturePosition, meanMouth, meanFeatureIndex;
     float distance;
+
+    public TMP_Text scoreText;
+
+
     public void Score () {
         sum = 0;
         // Scoring face
         for (int i = 0; i < Face.Instance.spline.GetPointCount(); i++) {
             // Assumes target spline is constructed the same way as face spline
-            distance = Vector3.Distance(Face.Instance.spline.GetPosition(i), targetFace.faceSpline.GetPosition(i));
+            distance = Vector3.Distance(Face.Instance.spline.GetPosition(i), targetFace.faceSpline.GetPosition(i)/*Face.Instance.spline.GetPosition(i)*/);
             if (distance < acceptedDistance) {
-                sum += ((distance*100)/acceptedDistance);
+                sum += (100 - ((distance/acceptedDistance)*100));
             }
         }
 
         meanFace = sum / Face.Instance.spline.GetPointCount();
 
         sum = 0;
+
         // Scoring mouth
-        for (int i = 0; i < Face.Instance.spline.GetPointCount(); i++) {
+        /*for (int i = 0; i < Face.Instance.spline.GetPointCount(); i++) {
             // Assumes target mouth spline is constructed the same way as mouth spline
             distance = Vector3.Distance(Face.Instance.mouthSpline.GetPosition(i), targetFace.mouthSpline.GetPosition(i));
             if (distance < acceptedDistance) {
-                sum += ((distance*100)/acceptedDistance);
+                sum += (100 - ((distance/acceptedDistance)*100));
             }
         }
 
-        meanMouth = sum / Face.Instance.mouthSpline.GetPointCount();
+        meanMouth = sum / Face.Instance.mouthSpline.GetPointCount();*/
 
         // Hardcodeado porque igual nadie hace code review
 
@@ -40,66 +46,70 @@ public class ScoringSystem : MonoBehaviour
         Vector3 targetPoint;
         // Score ears
         // Right ear
-        targetPoint = (targetFace.transform.position - targetFace.rightEar.transform.position);
+        targetPoint = (targetFace.rightEar.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
         targetPoint.y /= (targetFace.gameObject.transform.localScale.y);
         distance = Vector3.Distance(targetPoint, Face.Instance.rightEar.transform.position);
 
         if (distance < acceptedDistance) {
-            sum += ((distance*100)/acceptedDistance);
+            sum += (100 - ((distance/acceptedDistance)*100));
         }
 
         // left ear
-        targetPoint = (targetFace.transform.position - targetFace.leftEar.transform.position);
+        targetPoint = (targetFace.leftEar.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
         targetPoint.y /= (targetFace.gameObject.transform.localScale.y);
         distance = Vector3.Distance(targetPoint, Face.Instance.leftEar.transform.position);
 
         if (distance < acceptedDistance) {
-            sum += ((distance*100)/acceptedDistance);
+            sum += (100 - ((distance/acceptedDistance)*100));
         }
-
+        /*
         // mouth
-        targetPoint = (targetFace.transform.position - targetFace.mouth.gameObject.transform.position);
+        targetPoint = (targetFace.mouth.gameObject.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
         targetPoint.y /= (targetFace.gameObject.transform.localScale.y);
         distance = Vector3.Distance(targetPoint, Face.Instance.mouth.transform.position);
 
         if (distance < acceptedDistance) {
-            sum += ((distance*100)/acceptedDistance);
-        }
+            sum += (100 - ((distance/acceptedDistance)*100));
+        }*/
 
         // left eye
-        targetPoint = (targetFace.transform.position - targetFace.leftEye.gameObject.transform.position);
+        targetPoint = (targetFace.leftEye.gameObject.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
         targetPoint.y /= (targetFace.gameObject.transform.localScale.y);
         distance = Vector3.Distance(targetPoint, Face.Instance.leftEye.transform.position);
 
         if (distance < acceptedDistance) {
-            sum += ((distance*100)/acceptedDistance);
+            sum += (100 - ((distance/acceptedDistance)*100));
         }
 
         // right eye
-        targetPoint = (targetFace.transform.position - targetFace.rightEye.gameObject.transform.position);
+        targetPoint = (targetFace.rightEye.gameObject.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
         targetPoint.y /= (targetFace.gameObject.transform.localScale.y);
         distance = Vector3.Distance(targetPoint, Face.Instance.rightEye.transform.position);
 
         if (distance < acceptedDistance) {
-            sum += ((distance*100)/acceptedDistance);
+            sum += (100 - ((distance/acceptedDistance)*100));
         }
 
         // nose
-        targetPoint = (targetFace.transform.position - targetFace.nose.gameObject.transform.position);
+        targetPoint = (targetFace.nose.gameObject.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
         targetPoint.y /= (targetFace.gameObject.transform.localScale.y);
         distance = Vector3.Distance(targetPoint, Face.Instance.nose.transform.position);
 
         if (distance < acceptedDistance) {
-            sum += ((distance*100)/acceptedDistance);
+            sum += (100 - ((distance/acceptedDistance)*100));
         }
 
-        meanFeaturePosition = sum / 6f;
+        meanFeaturePosition = sum / 5F;
+
+        //meanFeaturePosition = sum;
+
+        //MOUTH CHANGE> 6F
         
         // Scoring Feature Indexes
         sum = 0;
@@ -126,7 +136,13 @@ public class ScoringSystem : MonoBehaviour
 
         meanFeatureIndex = sum / 5;
 
-        score = (meanFace + meanFeatureIndex + meanFeaturePosition + meanMouth)/4;
+        score = (meanFace + meanFeatureIndex + meanFeaturePosition/* + meanMouth*/)/3;
 
+        scoreText.text = "Score: " + score + "%";
+
+    }
+
+    private void Update() {
+        Score();
     }
 }

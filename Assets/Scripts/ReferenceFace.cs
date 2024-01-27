@@ -9,4 +9,10 @@ public class ReferenceFace : MonoBehaviour
 
     public GameObject nose, rightEar, leftEar, rightEye, leftEye, mouth;
     public Vector3 center;
+    
+    public SpriteShapeController shapeController;
+
+    private void Awake() {
+        faceSpline = shapeController.spline;
+    }
 }
