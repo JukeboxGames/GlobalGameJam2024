@@ -17,6 +17,7 @@ public class Face : MonoBehaviour
     public Spline spline;
     public float _punchRadius = 0.5f;
     public float hitForce;
+    public float maxHitRange;
     public Vector3 Center = new(0, 0, 0);
 
     // Face Parts References
@@ -68,8 +69,12 @@ public class Face : MonoBehaviour
                 {
                      hasHit = true;
                     // Esta dentro de mi rango sumarle vector de la direccion del mouse
-                    Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
-                    spline.SetPosition(i, splinePoint + hitForce * direction * vectorAdd);
+                    if (splinePoint.magnitude - GetCenter().magnitude > maxHitRange)
+                    {
+                        Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
+                        print(vectorAdd);
+                        spline.SetPosition(i, splinePoint + hitForce * direction * vectorAdd);
+                    }
                 } 
             }
 
