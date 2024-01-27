@@ -40,10 +40,12 @@ public class FacialFeature : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        /*
         Gizmos.color = Color.red;
         for (int i = 0; i < 5; i++) {
             Gizmos.DrawSphere(Face.Instance.spline.GetPosition(closest[i].Item1), 0.1f);
         }
         Gizmos.DrawSphere(Center, 0.1f);
+        */
     }
 }
