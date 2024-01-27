@@ -64,6 +64,8 @@ public class WarpMesh : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) OnClickMouse(1);
+        if (Input.GetMouseButtonDown(0)) {
+            OnClickMouse(1);
+        }
     }
 }
