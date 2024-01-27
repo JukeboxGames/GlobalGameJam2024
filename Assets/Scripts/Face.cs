@@ -13,7 +13,7 @@ public class Face : MonoBehaviour
     public SpriteShapeController shapeController;
     private Spline spline;
     public float _punchRadius = 0.5f;
-    private Vector3 Center = new(0, 0, 0);
+    public Vector3 Center = new(0, 0, 0);
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,9 +24,6 @@ public class Face : MonoBehaviour
         {
             Instance = this;
         }
-    }
-    void Start()
-    {
         spline = shapeController.spline;
         Center = GetCenter(); 
     }

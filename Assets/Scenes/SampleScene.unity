@@ -386,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeController: {fileID: 855704358}
   _punchRadius: 0.5
+  Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
