@@ -72,7 +72,6 @@ public class Face : MonoBehaviour
                     if (splinePoint.magnitude - GetCenter().magnitude > maxHitRange)
                     {
                         Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
-                        print(vectorAdd);
                         spline.SetPosition(i, splinePoint + hitForce * direction * vectorAdd);
                     }
                 } 
