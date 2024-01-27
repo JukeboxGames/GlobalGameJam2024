@@ -64,7 +64,7 @@ public class ScoringSystem : MonoBehaviour
         if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
-        /*
+        
         // mouth
         targetPoint = (targetFace.mouth.gameObject.transform.localPosition);
         targetPoint.x /= (targetFace.gameObject.transform.localScale.x);
@@ -73,7 +73,7 @@ public class ScoringSystem : MonoBehaviour
 
         if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
-        }*/
+        }
 
         // left eye
         targetPoint = (targetFace.leftEye.gameObject.transform.localPosition);
@@ -105,11 +105,7 @@ public class ScoringSystem : MonoBehaviour
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
-        meanFeaturePosition = sum / 5F;
-
-        //meanFeaturePosition = sum;
-
-        //MOUTH CHANGE> 6F
+        meanFeaturePosition = sum / 6F;
         
         // Scoring Feature Indexes
         sum = 0;
