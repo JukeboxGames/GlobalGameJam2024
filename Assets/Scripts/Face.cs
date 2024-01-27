@@ -68,11 +68,11 @@ public class Face : MonoBehaviour
                 if (dist < _punchRadius)
                 {
                      hasHit = true;
-                     print(splinePoint.magnitude - GetCenter().magnitude);
                     // Esta dentro de mi rango sumarle vector de la direccion del mouse
                     if (splinePoint.magnitude - GetCenter().magnitude > maxHitRange)
                     {
                         Vector3 vectorAdd = (spline.GetPosition(i) - mousePosition).normalized;
+                        print(vectorAdd);
                         spline.SetPosition(i, splinePoint + hitForce * direction * vectorAdd);
                     }
                 } 
