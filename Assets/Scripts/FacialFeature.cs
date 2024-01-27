@@ -6,12 +6,15 @@ public class FacialFeature : MonoBehaviour
 {
     private Vector3 offset; 
     [SerializeField] private List<GameObject> differentFeatures = new List<GameObject>();
+    private int currentIndex = 0; 
     
     // Start is called before the first frame update
     void Start()
     {
         offset =  Face.Instance.Center - transform.position;
-        
+        Transform firstChild = transform.GetChild(0);
+        Instantiate(differentFeatures[currentIndex], firstChild.position, firstChild.rotation, transform);
+        Destroy(firstChild.gameObject);
     }
 
     // Update is called once per frame
@@ -27,6 +30,10 @@ public class FacialFeature : MonoBehaviour
         {
             Transform firstChild = transform.GetChild(0);
             int randomIndex = Random.Range(0, differentFeatures.Count);
+            while(randomIndex == currentIndex){
+                randomIndex = Random.Range(0, differentFeatures.Count);
+            }
+            currentIndex = randomIndex;
             GameObject newFeature = differentFeatures[randomIndex];
             Instantiate(newFeature, firstChild.position, firstChild.rotation, transform);
             Destroy(firstChild.gameObject);
