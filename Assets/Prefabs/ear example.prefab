@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203150606693376465}
   - component: {fileID: 2331734656022593591}
+  - component: {fileID: 6284540457957560472}
   m_Layer: 0
   m_Name: ear example
   m_TagString: Untagged
@@ -74,6 +75,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06013aeaec90e474b982ebcdbfca5cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6284540457957560472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628052821992442052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430ce7264835aec4691320f6192edf83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   differentFeatures:
