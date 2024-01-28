@@ -10,7 +10,7 @@ public class CatBehaivor : MonoBehaviour
     private bool isHitting = false;
     private void Update() 
     {
-      if (Input.GetMouseButtonDown(0))
+      if (Face.Instance.counter <= 0 && Input.GetMouseButtonDown(0))
       {
         if (!isHitting)
         {
