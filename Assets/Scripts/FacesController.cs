@@ -15,5 +15,6 @@ public class FacesController : MonoBehaviour
         index = Random.Range(0, allFaces.Length-1);
         Instantiate(allFaces[index], facePlaceParent.transform); 
         scorer.SetTargetFace(allFaces[index].GetComponent<ReferenceFace>());
+        //allFaces[index].GetComponent<ReferenceFace>().RandomizeFacialFeatures();
     }
 }
