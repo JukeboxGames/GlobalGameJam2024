@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CustomCursor : MonoBehaviour
 {
@@ -25,8 +27,7 @@ public class CustomCursor : MonoBehaviour
             Camera.main.ScreenToWorldPoint(Input.mousePosition).y,
             0
         );
-
-        if (Face.Instance.spline.GetPointCount() > 0)
+        if (SceneManager.GetActiveScene().name == "SampleScene" && Face.Instance.spline.GetPointCount() > 0)
         {
             inHittableSpot = false;
             // Busca el punto del spline mas cercano
@@ -50,6 +51,7 @@ public class CustomCursor : MonoBehaviour
 
             Face.Instance.Center = Face.Instance.GetCenter();
         } 
+
         transform.position = mousePosition;
     }
 }
