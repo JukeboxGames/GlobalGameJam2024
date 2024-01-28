@@ -6,8 +6,9 @@ using TMPro;
 public class ScoringSystem : MonoBehaviour
 {
     public ReferenceFace targetFace;
-    [SerializeField] private float acceptedDistance;
-    [SerializeField] private float onPointDistance;
+    [SerializeField] private float acceptedDistance = 2f;
+    [SerializeField] private float acceptedFaceDistance = 1f;
+    [SerializeField] private float onPointDistance = 0.3f;
     float sum, score;
     float meanFace, meanFeaturePosition, meanMouth, meanFeatureIndex;
     float distance;
@@ -23,8 +24,8 @@ public class ScoringSystem : MonoBehaviour
             distance = Vector3.Distance(Face.Instance.spline.GetPosition(i), targetFace.faceSpline.GetPosition(i)/*Face.Instance.spline.GetPosition(i)*/);
             if (distance < onPointDistance) {
                 sum += 100;
-            } else if (distance < acceptedDistance) {
-                sum += (100 - ((distance/acceptedDistance)*100));
+            } else if (distance < acceptedFaceDistance) {
+                sum += (100 - ((distance/acceptedFaceDistance)*100));
             }
         }
 
@@ -121,7 +122,7 @@ public class ScoringSystem : MonoBehaviour
         }
 
         meanFeatureIndex = sum / 5;
-        score = (meanFace + meanFace + meanFeatureIndex + meanFeaturePosition)/4;
+        score = ((meanFace*4) + meanFeatureIndex + meanFeaturePosition)/6;
 
         scoreText.text = "Score: " + score + "%";
 

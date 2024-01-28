@@ -17,8 +17,6 @@ public class FaceScreenUI : MonoBehaviour
     }
     public void ToggleFaceScreen()
     {
-        
-        Debug.Log("called");
         if (isVisible) {
             //rectTrans.localPosition = new Vector3(rectTrans.localPosition.x, 360, rectTrans.localPosition.z);
             newPos = new Vector3(rectTrans.localPosition.x, rectTrans.localPosition.y + 245, rectTrans.localPosition.z);
