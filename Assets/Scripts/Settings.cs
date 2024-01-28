@@ -5,8 +5,8 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
 
-    public int masterVolume = 100;
-    public int mouseSensitivity = 100;
+    public float masterVolume = 100;
+    public float mouseSensitivity = 100;
 
     public static Settings Instance
     {

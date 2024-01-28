@@ -25,13 +25,13 @@ public class SoundEffectManager : MonoBehaviour
         SetPunchEffectClip();
 
         audioSource.clip = punchEffect;
-        audioSource.volume = punchSoundVolumen;
+        audioSource.volume = Settings.Instance.masterVolume;
         audioSource.Play();
     }
 
     public void PlayWhooshEffect()
     {
-        audioSource.volume = whooshSoundVolumen;
+        audioSource.volume = Settings.Instance.masterVolume;
         audioSource.pitch = Random.Range(min_pitchWhoosh,max_pitchWhoosh);
         audioSource.clip = whooshSoundEffect;
 
