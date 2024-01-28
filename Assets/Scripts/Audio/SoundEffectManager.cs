@@ -12,10 +12,12 @@ public class SoundEffectManager : MonoBehaviour
     [SerializeField] List<AudioClip> epicPunchSoundEffects;
     [SerializeField] List<AudioClip> legendaryPunchSoundEffects;
     [SerializeField] AudioClip whooshSoundEffect;
+    [SerializeField] AudioClip finalSoundEffect;
 
     [Header("Settings")]
     [SerializeField] private float punchSoundVolumen;
     [SerializeField] private float whooshSoundVolumen;
+    [SerializeField] private float yeahSoundVolumen;
     [SerializeField] private float min_pitchWhoosh;
     [SerializeField] private float max_pitchWhoosh;
 
@@ -38,6 +40,12 @@ public class SoundEffectManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public void PlayYeahEffect()
+    {
+        audioSource.volume = yeahSoundVolumen;
+        audioSource.clip = finalSoundEffect;
+        audioSource.Play();
+    }
     private void SetPunchEffectClip()
     {
         int index = (int)Random.Range(1,100);

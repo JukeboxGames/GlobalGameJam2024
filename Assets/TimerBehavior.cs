@@ -11,6 +11,7 @@ public class TimerBehavior : MonoBehaviour
     public FaceScreenUI hook;
     public GameObject camHolder; 
     public GameObject cat;
+    public SoundEffectManager soundEffectManager;
     public GameObject slider,percentageText,button; 
     private int minutes,seconds;
     private IEnumerator MoveCamera() 
@@ -35,6 +36,7 @@ public class TimerBehavior : MonoBehaviour
     }
     private void EndScene() {
         // TODO: Implementar esto
+        soundEffectManager.PlayYeahEffect();
         hook.ForceVisible();
         cat.SetActive(false);
         Face.Instance.IsDisabled = true;

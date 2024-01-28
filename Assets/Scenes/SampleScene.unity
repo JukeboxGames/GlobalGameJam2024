@@ -4487,6 +4487,7 @@ MonoBehaviour:
   hook: {fileID: 789046077}
   camHolder: {fileID: 847030421}
   cat: {fileID: 231763086}
+  soundEffectManager: {fileID: 1908176739}
   slider: {fileID: 819439573}
   percentageText: {fileID: 312133887}
   button: {fileID: 103825022}
@@ -5815,6 +5816,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1104589272050463446, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
+      propertyPath: finalSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d251eee3ecd7374eae7ed22928361cd, type: 3}
+    - target: {fileID: 1104589272050463446, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
+      propertyPath: yeahSoundVolumen
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 1104589272050463446, guid: cbd16894a06919744aafb064b8736e9d, type: 3}
       propertyPath: whooshSoundVolumen
       value: 0.9
