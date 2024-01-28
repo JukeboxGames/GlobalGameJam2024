@@ -16,6 +16,7 @@ public class SwapPrefab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Face.Instance.IsDisabled) return;
         if (Input.GetMouseButtonDown(0) && transform.GetChild(0).GetComponent<ChildFeature>().OverMe){
             Swap();
         }
