@@ -21,11 +21,17 @@ public class ScoringSystem : MonoBehaviour
         sum = 0;
         // Scoring face
         for (int i = 0; i < Face.Instance.spline.GetPointCount(); i++) {
+            float minDistance = 99999;
+            for (int j = 0; j < targetFace.faceSpline.GetPointCount(); j++) {
+                distance = Vector3.Distance(Face.Instance.spline.GetPosition(i), targetFace.shapeController.spline.GetPosition(j));
+                if (distance < minDistance) {
+                    minDistance = distance;
+                }
+            }
             // Assumes target spline is constructed the same way as face spline
-            distance = Vector3.Distance(Face.Instance.spline.GetPosition(i), targetFace.shapeController.spline.GetPosition(i));
-            if (distance < onPointDistance) {
+            if (minDistance < onPointDistance) {
                 sum += 100;
-            } else if (distance < acceptedFaceDistance) {
+            } else if (minDistance < acceptedFaceDistance) {
                 sum += (100 - ((distance/acceptedFaceDistance)*100));
             }
         }
@@ -33,7 +39,7 @@ public class ScoringSystem : MonoBehaviour
         meanFace = sum / Face.Instance.spline.GetPointCount();
 
         // Hardcodeado porque igual nadie hace code review
-
+        /*
         sum = 0;
         Vector3 targetPoint;
         // Score ears
@@ -97,7 +103,7 @@ public class ScoringSystem : MonoBehaviour
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
-        meanFeaturePosition = sum / 6F;
+        meanFeaturePosition = sum / 6F;*/
         
         // Scoring Feature Indexes
         sum = 0;
