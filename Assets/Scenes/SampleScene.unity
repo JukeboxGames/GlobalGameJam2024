@@ -452,6 +452,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
+--- !u!1 &64983818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9179427665694540851, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
+  m_PrefabInstance: {fileID: 64983817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &124033933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1039,7 @@ MonoBehaviour:
   leftEar: {fileID: 798922532}
   rightEye: {fileID: 1903034994}
   leftEye: {fileID: 801239392}
-  mouth: {fileID: 0}
+  mouth: {fileID: 64983818}
   cooldown: 0.4
   counter: 0
   IsDisabled: 0
@@ -3288,7 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b0434db8d179f4c9f437d3b55e1287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 60
+  seconds: 3
   text: {fileID: 1881476256}
   scoreText: {fileID: 312133889}
   hook: {fileID: 789046077}

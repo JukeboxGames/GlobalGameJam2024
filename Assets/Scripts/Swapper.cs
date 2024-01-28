@@ -12,7 +12,7 @@ public class Swapper : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         int randomIndex = Random.Range(0, sprites.Length);
         spriteRenderer.sprite = sprites[randomIndex];
-        swapInterval= Random.Range(0, 4);
+        swapInterval= Random.Range(3, 7);
         InvokeRepeating(nameof(SwapSprite), swapInterval, swapInterval);
     }
 
