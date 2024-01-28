@@ -12,6 +12,8 @@ public class ColorChange : MonoBehaviour
     public Slider slider;
     public ScoringSystem scoringSystem;
     public Image bg;
+    public float sliderSpeed = 0.003f;
+    public float colorSpeed = 0.01f; 
     // Start is called before the first frame update
     void Start()
     {
@@ -23,16 +25,16 @@ public class ColorChange : MonoBehaviour
 
         if (val < scoringSystem._score / 100.0f)
         {
-            val += 0.003f;
+            val += sliderSpeed;
             slider.value = val;
         }
 
 
         if (val < 0.5f)
         {
-            bg.color = Color.Lerp(bg.color, targetColor1, 0.01f);
+            bg.color = Color.Lerp(bg.color, targetColor1, colorSpeed);
         }
-        else bg.color = Color.Lerp(bg.color, targetColor2, 0.01f);
+        else bg.color = Color.Lerp(bg.color, targetColor2, colorSpeed);
 
     }
 }

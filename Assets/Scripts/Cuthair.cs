@@ -34,7 +34,7 @@ public class Cuthair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && gameObject.GetComponent<ChildFeature>().OverMe){
+        if (Input.GetMouseButtonDown(1) && gameObject.GetComponent<ChildFeature>().OverMe && !Face.Instance.IsDisabled){
             Cut();
         }
     }
