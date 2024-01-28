@@ -56,7 +56,7 @@ public class ScoringSystem : MonoBehaviour
         } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
-        /*
+        
         // mouth
         targetPoint = (targetFace.mouth.gameObject.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.mouth.transform.position);
@@ -65,7 +65,7 @@ public class ScoringSystem : MonoBehaviour
             sum += 100;
         } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
-        }*/
+        }
 
         // left eye
         targetPoint = (targetFace.leftEye.gameObject.transform.localPosition);
@@ -97,7 +97,7 @@ public class ScoringSystem : MonoBehaviour
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
-        meanFeaturePosition = sum / 5F;
+        meanFeaturePosition = sum / 6F;
         
         // Scoring Feature Indexes
         sum = 0;
@@ -122,7 +122,12 @@ public class ScoringSystem : MonoBehaviour
             sum += 100;
         }
 
-        meanFeatureIndex = sum / 5;
+        if (targetFace.mouth.GetComponent<SwapPrefab>().currentIndex == Face.Instance.mouth.GetComponent<SwapPrefab>().currentIndex) {
+            sum += 100;
+        }
+
+        meanFeatureIndex = sum / 6;
+
         score = ((meanFace*4) + meanFeatureIndex + meanFeaturePosition)/6;
 
         scoreText.text = (int)score + "%";

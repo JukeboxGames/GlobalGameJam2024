@@ -1,27 +1,14 @@
 using UnityEngine;
 
-public class SpriteSwapper : MonoBehaviour
+public class NoseParent : MonoBehaviour
 {
-    public Sprite[] sprites;
-    public float swapInterval = 2f;
+    // Start is called before the first frame update
+    private Vector3 Center; 
 
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
+    // Update is called once per frame
+    void Update()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        InvokeRepeating(nameof(SwapSprite), swapInterval, swapInterval);
-    }
-
-    private void SwapSprite()
-    {
-        if (sprites.Length == 0)
-        {
-            Debug.LogWarning("No sprites assigned.");
-            return;
-        }
-
-        int randomIndex = Random.Range(0, sprites.Length);
-        spriteRenderer.sprite = sprites[randomIndex];
+        Center = Face.Instance.Center;
+        transform.position = Center;
     }
 }
