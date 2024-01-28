@@ -11,6 +11,7 @@ public class TimerBehavior : MonoBehaviour
     public FaceScreenUI hook;
     public GameObject camHolder; 
     public GameObject cat;
+    public GameObject slider; 
     private IEnumerator MoveCamera() {
         Vector3 target = new(2.5f, 0, -10);
         while(!camHolder.transform.position.Equals(target)) {
@@ -33,6 +34,7 @@ public class TimerBehavior : MonoBehaviour
         Face.Instance.IsDisabled = true;
         StartCoroutine(MoveCamera());
         StartCoroutine(MoveScore());
+        slider.SetActive(true);
     }
     private IEnumerator Countdown() {
         while(seconds > 0) {

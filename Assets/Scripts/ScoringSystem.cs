@@ -12,8 +12,8 @@ public class ScoringSystem : MonoBehaviour
     float sum, score;
     float meanFace, meanFeaturePosition, meanMouth, meanFeatureIndex;
     float distance;
-
     public TMP_Text scoreText;
+    public float _score; 
 
 
     public void Score () {
@@ -125,6 +125,7 @@ public class ScoringSystem : MonoBehaviour
         score = ((meanFace*4) + meanFeatureIndex + meanFeaturePosition)/6;
 
         scoreText.text = "Score: " + score + "%";
+        _score = score;
 
     }
 
