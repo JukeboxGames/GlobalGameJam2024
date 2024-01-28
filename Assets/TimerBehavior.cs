@@ -12,28 +12,24 @@ public class TimerBehavior : MonoBehaviour
     public GameObject camHolder; 
     public GameObject cat;
     public GameObject slider; 
-    private IEnumerator MoveCamera() {
+    private void MoveCamera() 
+    {
         Vector3 target = new(2.5f, 0, -10);
-        while(!camHolder.transform.position.Equals(target)) {
-            yield return new WaitForEndOfFrame();
-            camHolder.transform.position = Vector3.Lerp(camHolder.transform.position, target, 0.1f);
-        }
+        camHolder.transform.position = Vector3.Lerp(camHolder.transform.position, target, 0.07f);
     }
-    private IEnumerator MoveScore() {
+
+    private void MoveScore()
+    {
         Vector3 target2 = new(0.50503f, 0.50503f, 0.50503f);
-        yield return new WaitForSeconds(1);
-        while(!scoreText.rectTransform.localScale.Equals(target2)) {
-            yield return new WaitForEndOfFrame();
-            scoreText.rectTransform.localScale = Vector3.Lerp(scoreText.rectTransform.localScale, target2, 0.01f);
-        }
+        scoreText.rectTransform.localScale = Vector3.Lerp(scoreText.rectTransform.localScale, target2, 0.01f);  
     }
     private void EndScene() {
         // TODO: Implementar esto
         hook.ForceVisible();
         cat.SetActive(false);
         Face.Instance.IsDisabled = true;
-        StartCoroutine(MoveCamera());
-        StartCoroutine(MoveScore());
+        MoveCamera();
+        MoveScore();
         slider.SetActive(true);
     }
     private IEnumerator Countdown() {
