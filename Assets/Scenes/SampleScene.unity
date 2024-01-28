@@ -385,7 +385,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5677891582344875467, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
       propertyPath: differentFeatures.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5677891582344875467, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
       propertyPath: differentFeatures.Array.data[0]
@@ -395,6 +395,22 @@ PrefabInstance:
       propertyPath: differentFeatures.Array.data[1]
       value: 
       objectReference: {fileID: 5350595635597097804, guid: 159d21876c7011b4a807ae42d1ee8f05, type: 3}
+    - target: {fileID: 5677891582344875467, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
+      propertyPath: differentFeatures.Array.data[2]
+      value: 
+      objectReference: {fileID: 5350595635597097804, guid: 216fb375c46298e43a47a43f4851aaf2, type: 3}
+    - target: {fileID: 5677891582344875467, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
+      propertyPath: differentFeatures.Array.data[3]
+      value: 
+      objectReference: {fileID: 5350595635597097804, guid: 4116fb82cf94f9742a1a302acc3f9ae1, type: 3}
+    - target: {fileID: 5677891582344875467, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
+      propertyPath: differentFeatures.Array.data[4]
+      value: 
+      objectReference: {fileID: 5350595635597097804, guid: 78a45667033241a448c24257eb2206b1, type: 3}
+    - target: {fileID: 5677891582344875467, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
+      propertyPath: differentFeatures.Array.data[5]
+      value: 
+      objectReference: {fileID: 5350595635597097804, guid: fc3ad8240910d7e409de668457689e0d, type: 3}
     - target: {fileID: 5685819841542192823, guid: 17da74dfaa304e84faf2f264902b594e, type: 3}
       propertyPath: differentFeatures.Array.size
       value: 3
@@ -1387,6 +1403,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects: {fileID: 1908176739}
   face: {fileID: 534420489}
+  bloodEffect: {fileID: 2222319252223136530}
+  faceParts:
+  - {fileID: 1903034997}
+  - {fileID: 801239395}
+  - {fileID: 2540687388641832654}
+  - {fileID: 689439228}
+  - {fileID: 798922535}
+  - {fileID: 2086358470}
 --- !u!114 &534420494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,7 +2543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15983c995e46c7f4da1dbfe568b2333c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b97382913b948c4d838e691699a3db1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2550,9 +2574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catImages:
-  - {fileID: 21300000, guid: f4cfaf638f8382e4589f0d5028aabfec, type: 3}
-  - {fileID: 21300000, guid: 788a26645289df240a26ef1e6a75a3f4, type: 3}
-  - {fileID: 21300000, guid: e2bbe6488513d2c468ba060bb7547f86, type: 3}
+  - {fileID: 21300000, guid: 5627d8d80e854d042b93c52784c550d9, type: 3}
+  - {fileID: 21300000, guid: 5b4c50a3cc4c1d24c99d3404547131a9, type: 3}
+  - {fileID: 21300000, guid: c58c9528243f1704b98f57b0ead91362, type: 3}
   - {fileID: 21300000, guid: 36ac6bd3677014d4ea5918164d0c156f, type: 3}
   - {fileID: 21300000, guid: 15983c995e46c7f4da1dbfe568b2333c, type: 3}
   scorer: {fileID: 1830036039}
