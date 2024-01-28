@@ -7,6 +7,7 @@ public class ScoringSystem : MonoBehaviour
 {
     public ReferenceFace targetFace;
     [SerializeField] private float acceptedDistance;
+    [SerializeField] private float onPointDistance;
     float sum, score;
     float meanFace, meanFeaturePosition, meanMouth, meanFeatureIndex;
     float distance;
@@ -20,7 +21,9 @@ public class ScoringSystem : MonoBehaviour
         for (int i = 0; i < Face.Instance.spline.GetPointCount(); i++) {
             // Assumes target spline is constructed the same way as face spline
             distance = Vector3.Distance(Face.Instance.spline.GetPosition(i), targetFace.faceSpline.GetPosition(i)/*Face.Instance.spline.GetPosition(i)*/);
-            if (distance < acceptedDistance) {
+            if (distance < onPointDistance) {
+                sum += 100;
+            } else if (distance < acceptedDistance) {
                 sum += (100 - ((distance/acceptedDistance)*100));
             }
         }
@@ -36,7 +39,9 @@ public class ScoringSystem : MonoBehaviour
         targetPoint = (targetFace.rightEar.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.rightEar.transform.position);
 
-        if (distance < acceptedDistance) {
+        if (distance < onPointDistance) {
+            sum += 100;
+        } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
@@ -44,7 +49,9 @@ public class ScoringSystem : MonoBehaviour
         targetPoint = (targetFace.leftEar.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.leftEar.transform.position);
 
-        if (distance < acceptedDistance) {
+        if (distance < onPointDistance) {
+            sum += 100;
+        } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
         /*
@@ -52,7 +59,9 @@ public class ScoringSystem : MonoBehaviour
         targetPoint = (targetFace.mouth.gameObject.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.mouth.transform.position);
 
-        if (distance < acceptedDistance) {
+        if (distance < onPointDistance) {
+            sum += 100;
+        } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }*/
 
@@ -60,7 +69,9 @@ public class ScoringSystem : MonoBehaviour
         targetPoint = (targetFace.leftEye.gameObject.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.leftEye.transform.position);
 
-        if (distance < acceptedDistance) {
+        if (distance < onPointDistance) {
+            sum += 100;
+        } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
@@ -68,7 +79,9 @@ public class ScoringSystem : MonoBehaviour
         targetPoint = (targetFace.rightEye.gameObject.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.rightEye.transform.position);
 
-        if (distance < acceptedDistance) {
+        if (distance < onPointDistance) {
+            sum += 100;
+        } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
@@ -76,7 +89,9 @@ public class ScoringSystem : MonoBehaviour
         targetPoint = (targetFace.nose.gameObject.transform.localPosition);
         distance = Vector3.Distance(targetPoint, Face.Instance.nose.transform.position);
 
-        if (distance < acceptedDistance) {
+        if (distance < onPointDistance) {
+            sum += 100;
+        } else if (distance < acceptedDistance) {
             sum += (100 - ((distance/acceptedDistance)*100));
         }
 
@@ -106,7 +121,6 @@ public class ScoringSystem : MonoBehaviour
         }
 
         meanFeatureIndex = sum / 5;
-
         score = (meanFace + meanFeatureIndex + meanFeaturePosition)/3;
 
         scoreText.text = "Score: " + score + "%";
