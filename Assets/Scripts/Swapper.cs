@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpriteSwapper : MonoBehaviour
+public class Swapper : MonoBehaviour
 {
     public Sprite[] sprites;
     public float swapInterval = 2f;
@@ -10,6 +10,9 @@ public class SpriteSwapper : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        int randomIndex = Random.Range(0, sprites.Length);
+        spriteRenderer.sprite = sprites[randomIndex];
+        swapInterval= Random.Range(0, 4);
         InvokeRepeating(nameof(SwapSprite), swapInterval, swapInterval);
     }
 

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8869973550889903617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3454647974876479023}
+  - component: {fileID: 3379910752981886495}
+  m_Layer: 0
+  m_Name: HairController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3454647974876479023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869973550889903617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4296911, y: 2.469737, z: -0.0811004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3379910752981886495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869973550889903617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee0f8aaa6e05954384db6cc460d280d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairColors:
+  - {r: 1, g: 0.7075009, b: 0, a: 1}
+  - {r: 0.50482273, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.9341049, a: 1}
+  - {r: 0.11070052, g: 0.10194911, b: 0.745283, a: 1}
+  - {r: 0.06674972, g: 0.9433962, b: 0.7522668, a: 1}
+  - {r: 0.5283019, g: 0, b: 0.20604195, a: 1}
+  - {r: 0.041651852, g: 0.6792453, b: 0.33261508, a: 1}
+  - {r: 1, g: 1, b: 1, a: 0.48235294}
+  - {r: 0.7924528, g: 0.6472987, b: 0.41491634, a: 1}
+  - {r: 0.8207547, g: 0.30850983, b: 0, a: 1}
+  - {r: 0.5660378, g: 0.24551128, b: 0.050729785, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.6037736, g: 0.498398, b: 0.498398, a: 1}
+  - {r: 0.6792453, g: 0.4461244, b: 0.13777146, a: 1}
+  - {r: 0.3490566, g: 0.09715882, b: 0.027990391, a: 1}
+  - {r: 0.34901962, g: 0.040721837, b: 0.027450975, a: 1}
+  - {r: 0.9245283, g: 0.73809886, b: 0.24857599, a: 1}
+  hairTypes:
+  - {fileID: 21300000, guid: d3975fa4e24e8094ea733eba25126f95, type: 3}
+  - {fileID: 21300000, guid: 485f407d3fb224e4a8e39ceadb750b30, type: 3}
+  - {fileID: 21300000, guid: 05f22ddbb4915a94bb534e61f8761371, type: 3}
