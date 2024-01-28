@@ -15,6 +15,7 @@ public class FaceScreenUI : MonoBehaviour
 
     private Vector3 originalScale; 
     private Vector3 originalPosition; 
+    private Vector3 originalPos;
 
     private void Awake() {
         rectTrans = GetComponent<RectTransform>();
@@ -22,6 +23,10 @@ public class FaceScreenUI : MonoBehaviour
         targetScale = rectTrans.localScale;
         originalScale = targetScale;
         originalPosition = newPos; 
+    }
+
+    private void Start() {
+        originalPos = transform.localPosition;;
     }
     public void ToggleFaceScreen()
     {
@@ -57,6 +62,7 @@ public class FaceScreenUI : MonoBehaviour
     }
 
     public void ForceVisible() {
+        transform.localPosition = originalPos;
         newPos = new Vector3(rectTrans.localPosition.x-0, rectTrans.localPosition.y - 245, rectTrans.localPosition.z);
         targetScale = new(15, 15, 0);
         IsDisabled = true;

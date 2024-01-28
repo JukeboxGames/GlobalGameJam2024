@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class TimerBehavior : MonoBehaviour
 {
-    public int seconds = 0; 
+    public int time = 0; 
     public TMP_Text text;
     public TMP_Text scoreText; 
     public FaceScreenUI hook;
     public GameObject camHolder; 
     public GameObject cat;
-    public GameObject slider,percentageText; 
+    public GameObject slider,percentageText,button; 
+    private int minutes,seconds;
     private IEnumerator MoveCamera() 
     {
         Vector3 target = new(2.5f, 0, -10);
@@ -41,23 +42,29 @@ public class TimerBehavior : MonoBehaviour
         StartCoroutine(MoveScore());
         slider.SetActive(true);
         percentageText.SetActive(true);
+        button.SetActive(true);
     }
     private IEnumerator Countdown() {
         hook.ForceVisible();
         yield return new WaitForSeconds(2.0f);
         hook.ForceInvisible();
         Debug.Log("I waited");
-        while(seconds > 0) {
+        while(time > 0) {
             yield return new WaitForSeconds(1.0f);
-            seconds--;
-            text.text = seconds.ToString(); 
+            time--;
+            minutes = Mathf.FloorToInt(time / 60);
+            seconds = Mathf.FloorToInt(time % 60);      
+            text.text = string.Format("{0:00}:{1:00}",minutes,seconds);
         }
+        text.text = string.Format("{0:00}:{1:00}",minutes,seconds);
         EndScene();
     }
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Countdown());
-        text.text = seconds.ToString(); 
+        minutes = Mathf.FloorToInt(time / 60);
+        seconds = Mathf.FloorToInt(time % 60);
+        text.text = string.Format("{0:00}:{1:00}",minutes,seconds);
     }
 }

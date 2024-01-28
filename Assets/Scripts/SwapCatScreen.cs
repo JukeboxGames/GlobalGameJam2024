@@ -8,29 +8,43 @@ public class SwapCatScreen : MonoBehaviour
 {
     public Sprite[] catImages;
     public ScoringSystem scorer;
-    private float score; 
     public Image rend; 
-    private int index; 
-     static int MapNumberToOutput(int x)
+
+    private bool hasClicked = false;
+    void Update()
     {
-        // Define the range size
-        int rangeSize = 20;
-
-        // Calculate the index of the range
-        int rangeIndex = (int)Math.Ceiling((double)x / rangeSize);
-
-        // Cap the range index to 5
-        rangeIndex = Math.Min(rangeIndex, 5);
-
-        return rangeIndex;
-    }
-    void Update(){
-        score = scorer.GetScore();
-        index = MapNumberToOutput((int)score);
-        Console.WriteLine(index);
-        if(index != 0){
-            rend.sprite = catImages[index-1];
+        if (Input.GetMouseButtonDown(0))
+        {
+            hasClicked = true;
         }
-    }
+
+        if (!hasClicked)
+        {
+            rend.sprite = catImages[0];
+        } else
+        {
+            if (scorer.GetScore() <= 40f)
+            {
+                rend.sprite = catImages[0];
+            }
+            if (scorer.GetScore() > 40f && scorer.GetScore() <= 50f)
+            {
+                rend.sprite = catImages[1];
+            }
+            if (scorer.GetScore() > 50f && scorer.GetScore() <= 60f)
+            {
+                rend.sprite = catImages[2];
+            }
+            if (scorer.GetScore() > 60f && scorer.GetScore() <= 75f)
+            {
+                rend.sprite = catImages[3];
+            }
+            if (scorer.GetScore() > 75f)
+            {
+                rend.sprite = catImages[4];
+            }
+        }
+
+    }   
     
 }
