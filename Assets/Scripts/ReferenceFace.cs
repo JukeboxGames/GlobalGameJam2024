@@ -15,4 +15,16 @@ public class ReferenceFace : MonoBehaviour
     private void Awake() {
         faceSpline = shapeController.spline;
     }
+
+    /*public void RandomizeFacialFeatures(){
+        GameObject anchor = new GameObject("Anchor");
+        GameObject anchorRef = Instantiate(anchor, transform.TransformPoint(transform.position), transform.rotation);
+        Transform anchorTransf = anchorRef.transform;
+        nose.GetComponent<SwapPrefab>().SwapForReference(anchorTransf);
+        rightEar.GetComponent<SwapPrefab>().SwapForReference(anchorTransf);
+        leftEar.GetComponent<SwapPrefab>().SwapForReference(anchorTransf);
+        rightEye.GetComponent<SwapPrefab>().SwapForReference(anchorTransf);
+        leftEye.GetComponent<SwapPrefab>().SwapForReference(anchorTransf);
+        mouth.GetComponent<SwapPrefab>().SwapForReference(anchorTransf);
+    }*/
 }
