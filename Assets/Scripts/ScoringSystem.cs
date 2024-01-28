@@ -15,7 +15,9 @@ public class ScoringSystem : MonoBehaviour
     public TMP_Text scoreText;
     public float _score; 
 
-
+    public void SetTargetFace(ReferenceFace face){
+        targetFace = face; 
+    }
     public void Score () {
         sum = 0;
         // Scoring face
