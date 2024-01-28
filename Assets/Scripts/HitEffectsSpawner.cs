@@ -16,6 +16,8 @@ public class HitEffectsSpawner : MonoBehaviour
 
     private void HandlePlayerHit()
     {
+        CameraShaker.Invoke();
+
         Vector3 mousePosition = new(
             Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
             Camera.main.ScreenToWorldPoint(Input.mousePosition).y,
