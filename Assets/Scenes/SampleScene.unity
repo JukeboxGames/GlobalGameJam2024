@@ -4481,7 +4481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b0434db8d179f4c9f437d3b55e1287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2
+  time: 60
   text: {fileID: 1881476256}
   scoreText: {fileID: 312133889}
   hook: {fileID: 789046077}
@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFace: {fileID: 0}
   acceptedDistance: 0.5
-  acceptedFaceDistance: 0.2
+  acceptedFaceDistance: 2
   onPointDistance: 0.2
   scoreText: {fileID: 312133889}
 --- !u!4 &1830036040

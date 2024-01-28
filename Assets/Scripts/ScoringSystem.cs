@@ -135,6 +135,7 @@ public class ScoringSystem : MonoBehaviour
         meanFeatureIndex = sum / 6;
 
         score = (meanFace + meanFeatureIndex)/2;
+        
 
         scoreText.text = (int)score + "%";
 
