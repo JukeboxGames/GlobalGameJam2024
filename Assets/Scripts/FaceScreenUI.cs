@@ -13,14 +13,21 @@ public class FaceScreenUI : MonoBehaviour
     private bool IsDisabled = false;
     Vector3 newPos;
 
+    private Vector3 originalScale; 
+    private Vector3 originalPosition; 
+
     private void Awake() {
         rectTrans = GetComponent<RectTransform>();
         newPos = rectTrans.localPosition;
         targetScale = rectTrans.localScale;
+        originalScale = targetScale;
+        originalPosition = newPos; 
     }
     public void ToggleFaceScreen()
     {
+        Debug.Log("Call BEFORE Return");
         if(IsDisabled) return;
+        Debug.Log("Call after Return");
         if (isVisible) {
             //rectTrans.localPosition = new Vector3(rectTrans.localPosition.x, 360, rectTrans.localPosition.z);
             newPos = new Vector3(rectTrans.localPosition.x, rectTrans.localPosition.y + 245, rectTrans.localPosition.z);
@@ -41,6 +48,14 @@ public class FaceScreenUI : MonoBehaviour
          Debug.Log("Ended");
     }
 
+    private IEnumerator OriginalSize() {
+        while(!rectTrans.localScale.Equals(originalScale)) {
+            rectTrans.localScale = Vector3.Lerp(rectTrans.localScale, originalScale, 0.1f);
+            yield return new WaitForEndOfFrame(); 
+        }
+         Debug.Log("Ended");
+    }
+
     public void ForceVisible() {
         newPos = new Vector3(rectTrans.localPosition.x-0, rectTrans.localPosition.y - 245, rectTrans.localPosition.z);
         targetScale = new(15, 15, 0);
@@ -48,7 +63,14 @@ public class FaceScreenUI : MonoBehaviour
         StartCoroutine(ScaleSize());
     }
 
+    public void ForceInvisible() {
+        newPos = originalPosition;
+        IsDisabled = false;
+        StartCoroutine(OriginalSize());
+    }
+
     private void Update() {
+        Debug.Log("isDisabled: " + IsDisabled);
         rectTrans.localPosition = Vector3.SmoothDamp(rectTrans.localPosition, newPos, ref buttonVelocity, 0.2f);
     }
 }

@@ -43,6 +43,10 @@ public class TimerBehavior : MonoBehaviour
         percentageText.SetActive(true);
     }
     private IEnumerator Countdown() {
+        hook.ForceVisible();
+        yield return new WaitForSeconds(2.0f);
+        hook.ForceInvisible();
+        Debug.Log("I waited");
         while(seconds > 0) {
             yield return new WaitForSeconds(1.0f);
             seconds--;
