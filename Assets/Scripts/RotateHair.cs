@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class ClosestParent : MonoBehaviour
+public class RotateHair : MonoBehaviour
 {
+    public float rotationSpeed; 
+    private Vector3 direction; 
     private Tuple<int, float> closest = new(0,0);
     public Vector3 closestTransform; 
-    // Start is called before the first frame update
+
     void Start()
     {
         closest = new(0, Vector3.Distance(transform.position, Face.Instance.spline.GetPosition(0)));
@@ -19,10 +21,11 @@ public class ClosestParent : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         closestTransform = Face.Instance.spline.GetPosition(closest.Item1);
-        transform.position = closestTransform;
+        direction = -closestTransform;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime); 
     }
 }
