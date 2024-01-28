@@ -11,26 +11,36 @@ public class TimerBehavior : MonoBehaviour
     public FaceScreenUI hook;
     public GameObject camHolder; 
     public GameObject cat;
-    public GameObject slider; 
-    private void MoveCamera() 
+    public GameObject slider,percentageText; 
+    private IEnumerator MoveCamera() 
     {
         Vector3 target = new(2.5f, 0, -10);
-        camHolder.transform.position = Vector3.Lerp(camHolder.transform.position, target, 0.07f);
+        while(!camHolder.transform.position.Equals(target)) 
+        {
+            yield return new WaitForEndOfFrame();
+            camHolder.transform.position = Vector3.Lerp(camHolder.transform.position, target, 0.01f);
+        }
     }
 
-    private void MoveScore()
+    private IEnumerator MoveScore()
     {
         Vector3 target2 = new(0.50503f, 0.50503f, 0.50503f);
-        scoreText.rectTransform.localScale = Vector3.Lerp(scoreText.rectTransform.localScale, target2, 0.01f);  
+        yield return new WaitForSeconds(1);
+
+        while(!scoreText.rectTransform.localScale.Equals(target2)) {
+            yield return new WaitForEndOfFrame();
+            scoreText.rectTransform.localScale = Vector3.Lerp(scoreText.rectTransform.localScale, target2, 0.01f);
+        }
     }
     private void EndScene() {
         // TODO: Implementar esto
         hook.ForceVisible();
         cat.SetActive(false);
         Face.Instance.IsDisabled = true;
-        MoveCamera();
-        MoveScore();
+        StartCoroutine(MoveCamera());
+        StartCoroutine(MoveScore());
         slider.SetActive(true);
+        percentageText.SetActive(true);
     }
     private IEnumerator Countdown() {
         while(seconds > 0) {

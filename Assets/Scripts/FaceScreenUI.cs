@@ -42,7 +42,7 @@ public class FaceScreenUI : MonoBehaviour
     }
 
     public void ForceVisible() {
-        newPos = new Vector3(rectTrans.localPosition.x-50, rectTrans.localPosition.y - 245, rectTrans.localPosition.z);
+        newPos = new Vector3(rectTrans.localPosition.x-0, rectTrans.localPosition.y - 245, rectTrans.localPosition.z);
         targetScale = new(15, 15, 0);
         IsDisabled = true;
         StartCoroutine(ScaleSize());

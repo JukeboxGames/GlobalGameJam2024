@@ -22,6 +22,7 @@ public class ColorChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
+        print(1); 
         slider.value = scoringSystem.GetScore();
         
         if (slider.value < 60f)
