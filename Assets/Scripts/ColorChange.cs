@@ -8,7 +8,6 @@ public class ColorChange : MonoBehaviour
 {
     public Color targetColor1;
     public Color targetColor2;
-    private float val = 0;
     public Slider slider;
     public ScoringSystem scoringSystem;
     public Image bg;
@@ -22,15 +21,7 @@ public class ColorChange : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        /*
-        if (val < scoringSystem.GetScore() / 100.0f)
-        {
-            val += sliderSpeed;
-            slider.value = val;
-        }
-        */
-
+    {    
         slider.value = scoringSystem.GetScore();
         
         if (slider.value < 60f)
