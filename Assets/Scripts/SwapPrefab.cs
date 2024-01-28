@@ -6,6 +6,7 @@ public class SwapPrefab : MonoBehaviour
 {
     [SerializeField] private List<GameObject> differentFeatures = new List<GameObject>();
     public int currentIndex = 0;
+    [SerializeField] private bool canChange = true;
 
     private void Start() {
         Transform firstChild = transform.GetChild(0);
