@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetFace: {fileID: 0}
   acceptedDistance: 0.5
-  acceptedFaceDistance: 2
+  acceptedFaceDistance: 1.3
   onPointDistance: 0.2
   scoreText: {fileID: 312133889}
 --- !u!4 &1830036040

@@ -30,9 +30,7 @@ public class FaceScreenUI : MonoBehaviour
     }
     public void ToggleFaceScreen()
     {
-        Debug.Log("Call BEFORE Return");
         if(IsDisabled) return;
-        Debug.Log("Call after Return");
         if (isVisible) {
             //rectTrans.localPosition = new Vector3(rectTrans.localPosition.x, 360, rectTrans.localPosition.z);
             newPos = new Vector3(rectTrans.localPosition.x, rectTrans.localPosition.y + 245, rectTrans.localPosition.z);
@@ -50,7 +48,6 @@ public class FaceScreenUI : MonoBehaviour
             rectTrans.localScale = Vector3.Lerp(rectTrans.localScale, targetScale, 0.1f);
             yield return new WaitForEndOfFrame(); 
         }
-         Debug.Log("Ended");
     }
 
     private IEnumerator OriginalSize() {
@@ -58,7 +55,6 @@ public class FaceScreenUI : MonoBehaviour
             rectTrans.localScale = Vector3.Lerp(rectTrans.localScale, originalScale, 0.1f);
             yield return new WaitForEndOfFrame(); 
         }
-         Debug.Log("Ended");
     }
 
     public void ForceVisible() {
@@ -76,7 +72,6 @@ public class FaceScreenUI : MonoBehaviour
     }
 
     private void Update() {
-        Debug.Log("isDisabled: " + IsDisabled);
         rectTrans.localPosition = Vector3.SmoothDamp(rectTrans.localPosition, newPos, ref buttonVelocity, 0.2f);
     }
 }
