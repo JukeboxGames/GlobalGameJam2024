@@ -9,7 +9,7 @@ public class SwapPrefab : MonoBehaviour
 
     private void Start() {
         Transform firstChild = transform.GetChild(0);
-        Instantiate(differentFeatures[currentIndex], firstChild.position, firstChild.rotation, transform);
+        Instantiate(differentFeatures[currentIndex], firstChild.position, differentFeatures[currentIndex].transform.rotation, transform);
         Destroy(firstChild.gameObject);
     }
 
@@ -31,7 +31,7 @@ public class SwapPrefab : MonoBehaviour
             }
             currentIndex = randomIndex;
             GameObject newFeature = differentFeatures[randomIndex];
-            Instantiate(newFeature, firstChild.position, firstChild.rotation, transform);
+            Instantiate(newFeature, firstChild.position, newFeature.transform.rotation, transform);
             Destroy(firstChild.gameObject);
         }
         else
