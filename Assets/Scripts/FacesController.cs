@@ -12,7 +12,7 @@ public class FacesController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        index = Random.Range(0, allFaces.Length-1);
+        index = Random.Range(0, allFaces.Length);
         Instantiate(allFaces[index], facePlaceParent.transform); 
         scorer.SetTargetFace(allFaces[index].GetComponent<ReferenceFace>());
         //allFaces[index].GetComponent<ReferenceFace>().RandomizeFacialFeatures();

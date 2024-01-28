@@ -136,7 +136,9 @@ public class ScoringSystem : MonoBehaviour
     
     private void Update() {
         Score();
+        Debug.Log("Score : " + score);
     }
+
     public float GetScore()
     {
         return score;

@@ -27,7 +27,6 @@ public class SwapCatScreen : MonoBehaviour
     void Update(){
         score = scorer.GetScore();
         index = MapNumberToOutput((int)score);
-        Debug.Log(index);
         Console.WriteLine(index);
         if(index != 0){
             rend.sprite = catImages[index-1];
