@@ -11,14 +11,13 @@ public class SettingsHelper : MonoBehaviour
 
     private void OnEnable() {
         volumeSlider.value = Settings.Instance.masterVolume;
-        mouseSensitivitySlider.value = Settings.Instance.mouseSensitivity;
     }
 
     public void SetMasterVolume(){
-        Settings.Instance.masterVolume = (int)volumeSlider.value;
+        Settings.Instance.masterVolume = volumeSlider.value;
     }
 
     public void SetMouseSensitivity(){
-        Settings.Instance.mouseSensitivity = (int)mouseSensitivitySlider.value;
+        Settings.Instance.mouseSensitivity = mouseSensitivitySlider.value;
     }
 }
