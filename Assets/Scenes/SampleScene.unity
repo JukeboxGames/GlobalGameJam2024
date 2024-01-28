@@ -2870,6 +2870,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1780359898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1780359900}
+  - component: {fileID: 1780359901}
+  m_Layer: 0
+  m_Name: HairController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1780359900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780359898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4296911, y: 2.469737, z: -0.0811004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1780359901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780359898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee0f8aaa6e05954384db6cc460d280d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairColors:
+  - {r: 1, g: 0.7075009, b: 0, a: 1}
+  - {r: 0.50482273, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.9341049, a: 1}
+  - {r: 0.11070052, g: 0.10194911, b: 0.745283, a: 1}
+  - {r: 0.06674972, g: 0.9433962, b: 0.7522668, a: 1}
+  - {r: 0.5283019, g: 0, b: 0.20604195, a: 1}
+  - {r: 0.041651852, g: 0.6792453, b: 0.33261508, a: 1}
+  - {r: 1, g: 1, b: 1, a: 0.48235294}
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.8207547, g: 0.30850983, b: 0, a: 1}
+  hairTypes:
+  - {fileID: 21300000, guid: d3975fa4e24e8094ea733eba25126f95, type: 3}
+  - {fileID: 21300000, guid: 485f407d3fb224e4a8e39ceadb750b30, type: 3}
+  - {fileID: 21300000, guid: 05f22ddbb4915a94bb534e61f8761371, type: 3}
 --- !u!1 &1830036038
 GameObject:
   m_ObjectHideFlags: 0
@@ -4607,3 +4667,4 @@ SceneRoots:
   - {fileID: 1832289885}
   - {fileID: 58809297}
   - {fileID: 15057560}
+  - {fileID: 1780359900}
