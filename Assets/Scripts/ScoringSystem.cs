@@ -121,7 +121,7 @@ public class ScoringSystem : MonoBehaviour
         }
 
         meanFeatureIndex = sum / 5;
-        score = (meanFace + meanFeatureIndex + meanFeaturePosition)/3;
+        score = (meanFace + meanFace + meanFeatureIndex + meanFeaturePosition)/4;
 
         scoreText.text = "Score: " + score + "%";
 
