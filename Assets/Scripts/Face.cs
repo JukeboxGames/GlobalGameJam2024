@@ -23,6 +23,8 @@ public class Face : MonoBehaviour
     // Face Parts References
     public Spline mouthSpline;
     public GameObject nose, rightEar, leftEar, rightEye, leftEye, mouth;
+    public float cooldown = 0.2f;
+    public float counter = 0; 
 
     void Awake()
     {
@@ -120,9 +122,12 @@ public class Face : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (counter <= 0 && Input.GetMouseButtonDown(0)) {
             OnClickMouse(1);
-        }
+            counter = cooldown;
+        } 
+        else if(counter > 0) counter -= Time.deltaTime;
+
     }
 
     void OnDrawGizmos()

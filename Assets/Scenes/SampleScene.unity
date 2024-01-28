@@ -490,7 +490,7 @@ MonoBehaviour:
     m_IsOpenEnded: 0
     m_ControlPoints: []
   _punchRadius: 0.7
-  hitForce: 0.3
+  hitForce: 0.4
   maxHitRange: 1.8
   Center: {x: 0, y: 0, z: 0}
   mouthSpline:
@@ -502,6 +502,8 @@ MonoBehaviour:
   rightEye: {fileID: 1903034994}
   leftEye: {fileID: 801239392}
   mouth: {fileID: 0}
+  cooldown: 0.4
+  counter: 0
 --- !u!114 &534420490
 MonoBehaviour:
   m_ObjectHideFlags: 0
