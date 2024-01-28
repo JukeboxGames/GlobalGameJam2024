@@ -25,6 +25,7 @@ public class Face : MonoBehaviour
     public GameObject nose, rightEar, leftEar, rightEye, leftEye, mouth;
     public float cooldown = 0.2f;
     public float counter = 0; 
+    public bool IsDisabled = false;
 
     void Awake()
     {
@@ -122,6 +123,7 @@ public class Face : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(IsDisabled) return;
         if (counter <= 0 && Input.GetMouseButtonDown(0)) {
             OnClickMouse(1);
             counter = cooldown;
