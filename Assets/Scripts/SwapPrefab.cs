@@ -31,7 +31,7 @@ public class SwapPrefab : MonoBehaviour
             }
             currentIndex = randomIndex;
             GameObject newFeature = differentFeatures[randomIndex];
-            Instantiate(newFeature, firstChild.position, newFeature.transform.rotation, transform);
+            Instantiate(newFeature, transform.localPosition, newFeature.transform.rotation, transform);
             Destroy(firstChild.gameObject);
         }
         else

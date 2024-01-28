@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2941662052756189636}
   - component: {fileID: 4056674295036609957}
   m_Layer: 0
-  m_Name: Nose
+  m_Name: Nose 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0d7b14bef09d1b141911506fd74cdc17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2c6a3c45ba9d38469fdb380408f1fe4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,6 +131,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6268421, y: 0.93421054}
+  m_Offset: {x: 0.11185617, y: -0.07860171}
+  m_Size: {x: 0.5724256, y: 0.8737475}
   m_Direction: 0
